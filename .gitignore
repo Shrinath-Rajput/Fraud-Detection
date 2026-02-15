@@ -1,0 +1,9 @@
+venv/
+*.csv
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.zip
+data/
+artifacts/
