@@ -1,0 +1,7 @@
+[2026-02-18 10:11:07,754] INFO - Enter the datasets and method that points
+[2026-02-18 10:11:10,043] INFO - Read the dataset here
+[2026-02-18 10:11:22,203] INFO - Data read completely
+[2026-02-18 10:11:35,949] INFO - Read train and test data completed 
+[2026-02-18 10:11:35,949] INFO - Numerical and categorical pipelines created
+[2026-02-18 10:11:36,001] INFO - Applying preprocessing on training and testing dataset
+[2026-02-18 10:11:36,229] INFO - preprocessing saved successfully

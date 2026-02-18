@@ -75,7 +75,7 @@ class DataTrasformation:
             logging.info("Applying preprocessing on training and testing dataset")
 
             model_fit_train_df=preprocessing_obj.fit_transform(X_train)
-            model_fit_tst_df=preprocessing_obj.fit(X_test)
+            model_fit_tst_df=preprocessing_obj.transform(X_test)
 
            
             save_object(
@@ -84,16 +84,17 @@ class DataTrasformation:
             )
             logging.info("preprocessing saved successfully")
 
-            return(
-                model_fit_train_df,
-                model_fit_tst_df,
-                y_train,
-                y_test
-            )
+            return (
+            model_fit_train_df,
+            y_train.values.ravel(),
+            model_fit_tst_df,
+            y_test.values.ravel()
+                )
+
 
             
         except Exception as e:
-            raise CustomException(sys,e)
+            raise CustomException(e,sys)
         
 if __name__ == "__main__":
     from src.Components.data_ingestion import DataIngestion

@@ -1,0 +1,8 @@
+[2026-02-18 10:27:31,121] INFO - Enter the datasets and method that points
+[2026-02-18 10:27:32,983] INFO - Read the dataset here
+[2026-02-18 10:27:42,068] INFO - Data read completely
+[2026-02-18 10:27:52,715] INFO - Read train and test data completed 
+[2026-02-18 10:27:52,715] INFO - Numerical and categorical pipelines created
+[2026-02-18 10:27:52,756] INFO - Applying preprocessing on training and testing dataset
+[2026-02-18 10:27:52,886] INFO - preprocessing saved successfully
+[2026-02-18 10:27:54,635] INFO - Training Model: Logistic Regression
