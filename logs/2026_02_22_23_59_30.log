@@ -1,0 +1,8 @@
+[2026-02-22 23:59:32,910] INFO - ================Training Pipeline is Started =====================
+[2026-02-22 23:59:32,911] INFO - Enter the datasets and method that points
+[2026-02-22 23:59:33,941] INFO - Read the dataset here
+[2026-02-22 23:59:39,188] INFO - Data read completely
+[2026-02-22 23:59:45,837] INFO - Read train and test data completed 
+[2026-02-22 23:59:45,837] INFO - Numerical and categorical pipelines created
+[2026-02-22 23:59:45,861] INFO - Applying preprocessing on training and testing dataset
+[2026-02-22 23:59:45,935] INFO - preprocessing saved successfully

@@ -1,0 +1,11 @@
+[2026-02-23 00:01:10,365] INFO - ================Training Pipeline is Started =====================
+[2026-02-23 00:01:10,366] INFO - Enter the datasets and method that points
+[2026-02-23 00:01:11,381] INFO - Read the dataset here
+[2026-02-23 00:01:16,650] INFO - Data read completely
+[2026-02-23 00:01:23,310] INFO - Read train and test data completed 
+[2026-02-23 00:01:23,310] INFO - Numerical and categorical pipelines created
+[2026-02-23 00:01:23,328] INFO - Applying preprocessing on training and testing dataset
+[2026-02-23 00:01:23,385] INFO - preprocessing saved successfully
+[2026-02-23 00:01:24,937] INFO - Training Model: Logistic Regression
+[2026-02-23 00:01:56,911] INFO - Training Model: Random Forest
+[2026-02-23 00:04:13,065] INFO - Best model saved successfully

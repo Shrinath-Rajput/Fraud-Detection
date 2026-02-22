@@ -1,0 +1,10 @@
+[2026-02-22 22:52:28,354] INFO - Enter the datasets and method that points
+[2026-02-22 22:52:29,623] INFO - Read the dataset here
+[2026-02-22 22:52:34,956] INFO - Data read completely
+[2026-02-22 22:52:41,796] INFO - Read train and test data completed 
+[2026-02-22 22:52:41,797] INFO - Numerical and categorical pipelines created
+[2026-02-22 22:52:41,821] INFO - Applying preprocessing on training and testing dataset
+[2026-02-22 22:52:41,910] INFO - preprocessing saved successfully
+[2026-02-22 22:52:43,779] INFO - Training Model: Logistic Regression
+[2026-02-22 22:53:19,497] INFO - Training Model: Random Forest
+[2026-02-22 22:56:13,544] INFO - Best model saved successfully
