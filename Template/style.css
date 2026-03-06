@@ -1,0 +1,33 @@
+/* *
+{
+    background-color: antiquewhite;
+} */
+
+.one
+{
+    background-color:rgb(130, 68, 68);
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10 px black;
+}
+.two
+{
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 2px 2px 10px black;
+
+}
+
+.result
+{
+    background-color: bisque;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 10px black;
+    border: 2px solid black;
+    text-align: center;
+}
