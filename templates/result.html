@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Prediction Result</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+<div class="card p-5 shadow text-center">
+
+<h2>Fraud Detection Result</h2>
+
+{% if prediction == 1 %}
+
+<div class="alert alert-danger mt-4">
+<h3>⚠️ Fraud Transaction Detected</h3>
+</div>
+
+{% else %}
+
+<div class="alert alert-success mt-4">
+<h3>✅ Normal Transaction</h3>
+</div>
+
+{% endif %}
+
+<a href="/" class="btn btn-primary mt-3">Check Another Transaction</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
