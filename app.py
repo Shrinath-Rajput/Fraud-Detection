@@ -1,13 +1,28 @@
 from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 import pandas as pd
+import os
+import sys
 
 from src.Pipeline.predict_pipeline import PredictPipeline
 
 app = FastAPI()
 
-templates = Jinja2Templates(directory="templates")
+# 🔥 Base dir
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# 🔥 Templates
+templates = Jinja2Templates(
+    directory=os.path.join(BASE_DIR, "templates")
+)
+
+# 🔥 Static files (CSS)
+app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "static")), name="static")
+
+# 🔥 Fix imports
+sys.path.append(BASE_DIR)
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -50,47 +65,32 @@ async def predict(
     V28: float = Form(0),
     Amount: float = Form(0)
 ):
+    try:
+        data = {
+            "Time":[Time],
+            "V1":[V1], "V2":[V2], "V3":[V3], "V4":[V4], "V5":[V5],
+            "V6":[V6], "V7":[V7], "V8":[V8], "V9":[V9], "V10":[V10],
+            "V11":[V11], "V12":[V12], "V13":[V13], "V14":[V14], "V15":[V15],
+            "V16":[V16], "V17":[V17], "V18":[V18], "V19":[V19], "V20":[V20],
+            "V21":[V21], "V22":[V22], "V23":[V23], "V24":[V24], "V25":[V25],
+            "V26":[V26], "V27":[V27], "V28":[V28],
+            "Amount":[Amount]
+        }
 
-    data = {
-        "Time":[Time],
-        "V1":[V1],
-        "V2":[V2],
-        "V3":[V3],
-        "V4":[V4],
-        "V5":[V5],
-        "V6":[V6],
-        "V7":[V7],
-        "V8":[V8],
-        "V9":[V9],
-        "V10":[V10],
-        "V11":[V11],
-        "V12":[V12],
-        "V13":[V13],
-        "V14":[V14],
-        "V15":[V15],
-        "V16":[V16],
-        "V17":[V17],
-        "V18":[V18],
-        "V19":[V19],
-        "V20":[V20],
-        "V21":[V21],
-        "V22":[V22],
-        "V23":[V23],
-        "V24":[V24],
-        "V25":[V25],
-        "V26":[V26],
-        "V27":[V27],
-        "V28":[V28],
-        "Amount":[Amount]
-    }
+        df = pd.DataFrame(data)
 
-    df = pd.DataFrame(data)
+        pipeline = PredictPipeline()
+        prediction = pipeline.predict(df)
 
-    pipeline = PredictPipeline()
+        result = int(prediction[0])
 
-    prediction = pipeline.predict(df)
+        return templates.TemplateResponse(
+            "result.html",
+            {"request": request, "prediction": result}
+        )
 
-    return templates.TemplateResponse(
-        "result.html",
-        {"request": request, "prediction": int(prediction[0])}
-    )
+    except Exception as e:
+        return templates.TemplateResponse(
+            "result.html",
+            {"request": request, "prediction": f"Error: {str(e)}"}
+        )

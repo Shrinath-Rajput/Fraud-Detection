@@ -1,86 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Fraud Detection</title>
 
-<title>Fraud Detection</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/style.css">
 
 </head>
 
-<body class="bg-light">
+<body class="bg-gradient">
 
 <div class="container mt-5">
 
-<div class="card p-4 shadow">
+    <div class="card shadow-lg p-4 main-card">
 
-<h2 class="text-center mb-4">Credit Card Fraud Detection</h2>
+        <h2 class="text-center mb-4 text-primary fw-bold">
+            💳 Credit Card Fraud Detection
+        </h2>
 
-<form action="/predict" method="post">
+        <form action="/predict" method="post">
 
-<div class="row">
+            <div class="row">
 
-<div class="col-md-4 mb-3">
-<label>Time</label>
-<input type="number" step="any" class="form-control" name="Time">
-</div>
+                <!-- Auto loop style -->
+                {% for field in [
+                'Time','V1','V2','V3','V4','V5','V6','V7','V8','V9','V10',
+                'V11','V12','V13','V14','V15','V16','V17','V18','V19','V20',
+                'V21','V22','V23','V24','V25','V26','V27','V28','Amount'
+                ] %}
 
-<div class="col-md-4 mb-3">
-<label>V1</label>
-<input type="number" step="any" class="form-control" name="V1">
-</div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label fw-semibold">{{field}}</label>
+                    <input type="number" step="any" class="form-control" name="{{field}}" required>
+                </div>
 
-<div class="col-md-4 mb-3">
-<label>V2</label>
-<input type="number" step="any" class="form-control" name="V2">
-</div>
+                {% endfor %}
 
-<div class="col-md-4 mb-3">
-<label>V3</label>
-<input type="number" step="any" class="form-control" name="V3">
-</div>
+            </div>
 
-<div class="col-md-4 mb-3">
-<label>V4</label>
-<input type="number" step="any" class="form-control" name="V4">
-</div>
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-lg btn-primary px-5">
+                    🔍 Predict
+                </button>
+            </div>
 
-<div class="col-md-4 mb-3">
-<label>V5</label>
-<input type="number" step="any" class="form-control" name="V5">
-</div>
+        </form>
 
-<div class="col-md-4 mb-3">
-<label>V6</label>
-<input type="number" step="any" class="form-control" name="V6">
-</div>
-
-<div class="col-md-4 mb-3">
-<label>V7</label>
-<input type="number" step="any" class="form-control" name="V7">
-</div>
-
-<div class="col-md-4 mb-3">
-<label>V8</label>
-<input type="number" step="any" class="form-control" name="V8">
-</div>
-
-<div class="col-md-4 mb-3">
-<label>Amount</label>
-<input type="number" step="any" class="form-control" name="Amount">
-</div>
-
-</div>
-
-<div class="text-center">
-
-<button type="submit" class="btn btn-primary">Predict</button>
-
-</div>
-
-</form>
-
-</div>
+    </div>
 
 </div>
 
