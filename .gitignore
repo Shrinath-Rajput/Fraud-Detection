@@ -1,9 +1,60 @@
+# ------------------------
+# Python cache
+# ------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ------------------------
+# Virtual environment
+# ------------------------
 venv/
+venvpython/
+env/
+
+# ------------------------
+# OS files
+# ------------------------
+.DS_Store
+Thumbs.db
+
+# ------------------------
+# IDE
+# ------------------------
+.vscode/
+.idea/
+
+# ------------------------
+# Logs
+# ------------------------
+logs/
+*.log
+
+# ------------------------
+# Data files (IGNORE DATASET)
+# ------------------------
+data/
+Dataset/
 *.csv
-*.pkl
-*.joblib
+
+# ------------------------
+# ML experiment files
+# ------------------------
+mlruns/
 *.h5
 *.pt
 *.zip
-data/
-artifacts/
+
+# ------------------------
+# Environment variables
+# ------------------------
+.env
+
+# ------------------------
+# KEEP THESE (IMPORTANT)
+# ------------------------
+# ❗ DO NOT IGNORE:
+# artifacts/
+# *.pkl
+# *.joblib
