@@ -14,9 +14,17 @@ class PredictPipeline:
 
     def predict(self, features):
         try:
-            model_path = os.path.join("artifacts", "model.pkl")
-            preprocessor_path = os.path.join("artifacts", "preprocessor.pkl")
+            # ✅ Correct BASE PATH (important for Render)
+            BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+            model_path = os.path.abspath(
+                os.path.join(BASE_DIR, "..", "..", "artifacts", "model.pkl")
+            )
+            preprocessor_path = os.path.abspath(
+                os.path.join(BASE_DIR, "..", "..", "artifacts", "preprocessor.pkl")
+            )
+
+            # Load objects
             model = load_object(model_path)
             preprocessor = load_object(preprocessor_path)
 
@@ -41,13 +49,13 @@ class CustomData:
 
     def __init__(
         self,
-        Time,   # 👈 ADD THIS
+        Time,
         V1, V2, V3, V4, V5, V6, V7, V8, V9, V10,
         V11, V12, V13, V14, V15, V16, V17, V18, V19, V20,
         V21, V22, V23, V24, V25, V26, V27, V28,
         Amount
     ):
-        self.Time = Time   # 👈 ADD THIS
+        self.Time = Time
         self.V1 = V1
         self.V2 = V2
         self.V3 = V3
@@ -81,7 +89,7 @@ class CustomData:
     def get_data_as_dataframe(self):
         try:
             custom_data_input_dict = {
-                "Time": [self.Time],   # 👈 ADD THIS
+                "Time": [self.Time],
                 "V1": [self.V1],
                 "V2": [self.V2],
                 "V3": [self.V3],
@@ -119,9 +127,10 @@ class CustomData:
             raise CustomException(e, sys)
 
 
+# 🔥 Local test (optional)
 if __name__ == "__main__":
     data = CustomData(
-        10000,   # 👈 Time add kar
+        10000,
         0.1, -1.2, 0.3, 0.5, -0.4, 0.2, -0.1, 0.3, 0.6, -0.7,
         0.4, -0.2, 0.1, -0.5, 0.6, -0.8, 0.2, 0.3, -0.1, 0.4,
         -0.6, 0.7, -0.2, 0.1, -0.3, 0.5, 0.2, -0.4,
