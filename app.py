@@ -3,7 +3,6 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 import pandas as pd
 import os
-import sys
 
 from src.Pipeline.predict_pipeline import PredictPipeline
 
@@ -47,7 +46,7 @@ async def predict(
     Amount: float = Form(0)
 ):
     try:
-        # 🔥 Input Data
+        # 🔥 FULL FEATURE SET (IMPORTANT FIX)
         data = {
             "Time": [Time],
             "V1": [V1],
@@ -58,6 +57,29 @@ async def predict(
             "V6": [V6],
             "V7": [V7],
             "V8": [V8],
+
+            # 🔥 Missing features (fix for model)
+            "V9": [0],
+            "V10": [0],
+            "V11": [0],
+            "V12": [0],
+            "V13": [0],
+            "V14": [0],
+            "V15": [0],
+            "V16": [0],
+            "V17": [0],
+            "V18": [0],
+            "V19": [0],
+            "V20": [0],
+            "V21": [0],
+            "V22": [0],
+            "V23": [0],
+            "V24": [0],
+            "V25": [0],
+            "V26": [0],
+            "V27": [0],
+            "V28": [0],
+
             "Amount": [Amount]
         }
 
