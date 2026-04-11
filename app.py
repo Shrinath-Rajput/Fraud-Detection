@@ -14,18 +14,18 @@ templates = Jinja2Templates(
     directory=os.path.join(BASE_DIR, "templates")
 )
 
+# ✅ CORRECT
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
     return templates.TemplateResponse(
         "index.html",
-        context={"request": request}   # 🔥 IMPORTANT FIX
+        {"request": request}
     )
+
 
 @app.post("/predict", response_class=HTMLResponse)
 async def predict(request: Request):
-
     try:
-        # dummy data (test)
         df = pd.DataFrame({
             "Time":[1000],
             "V1":[0], "V2":[0], "V3":[0], "V4":[0], "V5":[0],
@@ -43,8 +43,8 @@ async def predict(request: Request):
 
         return templates.TemplateResponse(
             "result.html",
-            context={"request": request, "prediction": int(prediction[0])}
+            {"request": request, "prediction": int(prediction[0])}
         )
 
     except Exception as e:
-        return HTMLResponse(f"<h2>Error: {str(e)}</h2>")
+        return HTMLResponse(f"<h2>ERROR: {str(e)}</h2>")
