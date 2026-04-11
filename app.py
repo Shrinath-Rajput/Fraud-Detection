@@ -15,7 +15,7 @@ templates = Jinja2Templates(
 )
 
 # =========================
-# HOME PAGE (FORM)
+# HOME PAGE
 # =========================
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
@@ -25,7 +25,7 @@ def home(request: Request):
     )
 
 # =========================
-# PREDICT ROUTE
+# PREDICT
 # =========================
 @app.post("/predict", response_class=HTMLResponse)
 async def predict(
@@ -42,7 +42,6 @@ async def predict(
     Amount: float = Form(...)
 ):
     try:
-        # FULL FEATURE SET (model compatible)
         data = {
             "Time":[Time],
             "V1":[V1],
