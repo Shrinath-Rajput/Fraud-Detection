@@ -2,21 +2,15 @@ from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 import pandas as pd
-import os
 
 from src.Pipeline.predict_pipeline import PredictPipeline
 
 app = FastAPI()
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# 🔥 CORRECT TEMPLATE PATH
+templates = Jinja2Templates(directory="src/templates")
 
-templates = Jinja2Templates(
-    directory=os.path.join(BASE_DIR, "templates")
-)
 
-# =========================
-# HOME PAGE
-# =========================
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
     return templates.TemplateResponse(
@@ -24,35 +18,28 @@ def home(request: Request):
         {"request": request}
     )
 
-# =========================
-# PREDICT
-# =========================
+
 @app.post("/predict", response_class=HTMLResponse)
 async def predict(
     request: Request,
-    Time: float = Form(...),
-    V1: float = Form(...),
-    V2: float = Form(...),
-    V3: float = Form(...),
-    V4: float = Form(...),
-    V5: float = Form(...),
-    V6: float = Form(...),
-    V7: float = Form(...),
-    V8: float = Form(...),
-    Amount: float = Form(...)
+    Time: float = Form(0),
+    V1: float = Form(0),
+    V2: float = Form(0),
+    V3: float = Form(0),
+    V4: float = Form(0),
+    V5: float = Form(0),
+    V6: float = Form(0),
+    V7: float = Form(0),
+    V8: float = Form(0),
+    Amount: float = Form(0)
 ):
     try:
         data = {
             "Time":[Time],
-            "V1":[V1],
-            "V2":[V2],
-            "V3":[V3],
-            "V4":[V4],
-            "V5":[V5],
-            "V6":[V6],
-            "V7":[V7],
-            "V8":[V8],
+            "V1":[V1], "V2":[V2], "V3":[V3], "V4":[V4],
+            "V5":[V5], "V6":[V6], "V7":[V7], "V8":[V8],
 
+            # बाकी features default 0
             "V9":[0], "V10":[0], "V11":[0], "V12":[0],
             "V13":[0], "V14":[0], "V15":[0], "V16":[0],
             "V17":[0], "V18":[0], "V19":[0], "V20":[0],
