@@ -14,30 +14,35 @@ templates = Jinja2Templates(
     directory=os.path.join(BASE_DIR, "templates")
 )
 
+# =========================
+# HOME PAGE (FORM)
+# =========================
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
     return templates.TemplateResponse(
-        request=request,
-        name="index.html",
-        context={}
+        "index.html",
+        {"request": request}
     )
 
+# =========================
+# PREDICT ROUTE
+# =========================
 @app.post("/predict", response_class=HTMLResponse)
 async def predict(
     request: Request,
-    Time: float = Form(0),
-    V1: float = Form(0),
-    V2: float = Form(0),
-    V3: float = Form(0),
-    V4: float = Form(0),
-    V5: float = Form(0),
-    V6: float = Form(0),
-    V7: float = Form(0),
-    V8: float = Form(0),
-    Amount: float = Form(0)
+    Time: float = Form(...),
+    V1: float = Form(...),
+    V2: float = Form(...),
+    V3: float = Form(...),
+    V4: float = Form(...),
+    V5: float = Form(...),
+    V6: float = Form(...),
+    V7: float = Form(...),
+    V8: float = Form(...),
+    Amount: float = Form(...)
 ):
     try:
-        # ✅ FULL 30 FEATURES (missing = 0)
+        # FULL FEATURE SET (model compatible)
         data = {
             "Time":[Time],
             "V1":[V1],
@@ -66,9 +71,11 @@ async def predict(
         result = int(prediction[0])
 
         return templates.TemplateResponse(
-            request=request,
-            name="result.html",
-            context={"prediction": result}
+            "result.html",
+            {
+                "request": request,
+                "prediction": result
+            }
         )
 
     except Exception as e:
