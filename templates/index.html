@@ -2,83 +2,29 @@
 <html>
 <head>
     <title>Fraud Detection</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-light">
+<body>
 
-<div class="container mt-5">
-    <div class="card p-5 shadow">
+<h2>Fraud Detection System</h2>
 
-        <h2 class="text-center mb-4">Fraud Detection System</h2>
+<form action="/predict" method="post">
 
-        <!-- 🔥 FORM START -->
-        <form action="/predict" method="post">
+    Time: <input type="number" step="any" name="Time" required><br><br>
+    Amount: <input type="number" step="any" name="Amount" required><br><br>
 
-            <div class="row">
+    V1: <input type="number" step="any" name="V1" required><br><br>
+    V2: <input type="number" step="any" name="V2" required><br><br>
+    V3: <input type="number" step="any" name="V3" required><br><br>
+    V4: <input type="number" step="any" name="V4" required><br><br>
+    V5: <input type="number" step="any" name="V5" required><br><br>
+    V6: <input type="number" step="any" name="V6" required><br><br>
+    V7: <input type="number" step="any" name="V7" required><br><br>
+    V8: <input type="number" step="any" name="V8" required><br><br>
 
-                <div class="col-md-4 mb-3">
-                    <label>Time</label>
-                    <input type="number" step="any" name="Time" class="form-control" required>
-                </div>
+    <button type="submit">Test Prediction</button>
 
-                <div class="col-md-4 mb-3">
-                    <label>Amount</label>
-                    <input type="number" step="any" name="Amount" class="form-control" required>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label>V1</label>
-                    <input type="number" step="any" name="V1" class="form-control" required>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label>V2</label>
-                    <input type="number" step="any" name="V2" class="form-control" required>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label>V3</label>
-                    <input type="number" step="any" name="V3" class="form-control" required>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label>V4</label>
-                    <input type="number" step="any" name="V4" class="form-control" required>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label>V5</label>
-                    <input type="number" step="any" name="V5" class="form-control" required>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label>V6</label>
-                    <input type="number" step="any" name="V6" class="form-control" required>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label>V7</label>
-                    <input type="number" step="any" name="V7" class="form-control" required>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label>V8</label>
-                    <input type="number" step="any" name="V8" class="form-control" required>
-                </div>
-
-            </div>
-
-            <!-- 🔥 BUTTON -->
-            <button type="submit" class="btn btn-primary w-100 mt-3">
-                Test Prediction
-            </button>
-
-        </form>
-        <!-- 🔥 FORM END -->
-
-    </div>
-</div>
+</form>
 
 </body>
 </html>
