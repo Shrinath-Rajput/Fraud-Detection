@@ -12,12 +12,12 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
 
-# ✅ HOME PAGE
+# ✅ HOME
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     return templates.TemplateResponse(
-        name="index.html",   # 🔥 IMPORTANT FIX
-        context={"request": request}
+        "index.html",   # ✅ FIRST ARG = TEMPLATE
+        {"request": request}   # ✅ SECOND ARG = CONTEXT
     )
 
 # ✅ PREDICT
@@ -64,8 +64,8 @@ async def predict(
         result = int(prediction[0])
 
         return templates.TemplateResponse(
-            name="result.html",   # 🔥 IMPORTANT FIX
-            context={"request": request, "prediction": result}
+            "result.html",
+            {"request": request, "prediction": result}
         )
 
     except Exception as e:
