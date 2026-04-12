@@ -7,7 +7,7 @@ from src.Pipeline.predict_pipeline import PredictPipeline
 
 app = FastAPI()
 
-# 🔥 CORRECT TEMPLATE PATH
+# 🔥 FIXED PATH
 templates = Jinja2Templates(directory="src/templates")
 
 
@@ -39,7 +39,6 @@ async def predict(
             "V1":[V1], "V2":[V2], "V3":[V3], "V4":[V4],
             "V5":[V5], "V6":[V6], "V7":[V7], "V8":[V8],
 
-            # बाकी features default 0
             "V9":[0], "V10":[0], "V11":[0], "V12":[0],
             "V13":[0], "V14":[0], "V15":[0], "V16":[0],
             "V17":[0], "V18":[0], "V19":[0], "V20":[0],
